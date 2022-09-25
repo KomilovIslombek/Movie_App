@@ -10,7 +10,6 @@ import { useState, useEffect } from 'react';
 
 const Header = (props) => {
     const [ moviee, setMoviee ] = useState(props.data);
-    const [ movie, setMovie ] = useState();
     console.log(props.ikValue);
     let value = props.ikValue;
     let setValue = props.setValue
@@ -31,7 +30,7 @@ const Header = (props) => {
     // })
 
     const heartChange = (e) => {
-        setMoviee(moviee.map((item) => {
+        setMoviee(moviee.slice(0,900).map((item) => {
             if(item.id == e.target.id){ item.status = false }
             return item
          }))

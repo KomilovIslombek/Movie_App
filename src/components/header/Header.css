@@ -13,10 +13,8 @@
     position: relative;
     color: white;
     overflow: hidden;
+    background-color: black !important;
 }
-/* .navbar{ */
-    /* border: 1px solid red; */
-/* } */
 .nav__row{
     display: flex;
     justify-content: space-between;
@@ -94,7 +92,8 @@ input::placeholder{
 }
 .sideBar{
     width: 23%;
-    min-height: 1100px;
+    /* min-height: 1100px; */
+    height: 100%;
     background: white;
     position: absolute;
     top: 0;
@@ -102,6 +101,7 @@ input::placeholder{
     transition: 0.5s all !important;
     z-index: 999;
     padding: 20px 20px;
+    overflow: scroll;
 }
 #sideBarChange{
     right: 0 !important;

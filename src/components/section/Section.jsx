@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRef } from 'react';
 import status from '../../images/status.png';
 import strawbery from '../../images/strawbery.png';
@@ -6,13 +6,17 @@ import keanu from '../../images/keanu.png';
 import ryan from '../../images/ryan.png';
 import timot from '../../images/timot.png';
 import moretz from '../../images/moretz.png';
-// import data from '../data/movies';
 import './Section.css';
 import Modal from '../modal/Modal';
 import { useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Section = (props) => {
-    let movie = props.data
+    useEffect(() => {
+        Aos.init({duration: 2000});
+      }, [])
+    let movie = props.data.slice(0,900);
     let setValue = props.setValue
     let datta3 = movie.slice(90,120);
     const data = movie.slice(10,18);
@@ -42,10 +46,10 @@ const Section = (props) => {
 
     let count2 = 0;
     function swipe2() {
-        if(count2 > data2.length -4) {
+        if(count2 > data2.length -6) {
             count2 = 0;
         } else if (count2 < 0) {
-            count2 = data2.length - 4;
+            count2 = data2.length - 6;
         }
         work2.current.style.transform = `translateX(${-count2 * 332}px)` // 340
         // console.log(work2.current.style.transform);
@@ -66,10 +70,10 @@ const Section = (props) => {
     const work3 = useRef();
 
     function swipe3() {
-        if(count3 > datta3.length -4) {
+        if(count3 > datta3.length -6) {
             count3 = 0;
         } else if (count3 < 0) {
-            count3 = datta3.length - 4;
+            count3 = datta3.length - 6;
         }
         work3.current.style.transform = `translateX(${-count3 * 332}px)` // 340
         // console.log(work3.current.style.transform);
@@ -108,7 +112,8 @@ const Section = (props) => {
 
         movie.map(item => {
             if(item.id == id) {
-                console.log(item.status == false ? item.status = true : item.status = false);
+                item.status = item.status == false ? true : false;
+                // console.log(item.status == false ? item.status = true : item.status = false);
             }
             return item;
         })
@@ -145,9 +150,10 @@ const Section = (props) => {
                         <div ref={work} className="slider__wraper">
                             {
                                 data && data.map((item,index) => {
-
                                  return (
-                                    <div key={index} className="slider__card">
+                                    <div data-aos="fade-right"
+                                    data-aos-offset="500"
+                                    data-aos-duration="500" key={index} className="slider__card">
                                         <div className="slider__card__header">
                                             <i id={item.id}  style={ item.status == true ? {color: '#be123c'} : {color: '#D1D5DB'}} onClick={(e) => test(e)} className="fa-solid fa-heart heart"></i>
                                             <a href={ 'https://www.youtube.com/watch?v='+item.ytid}>
@@ -199,7 +205,9 @@ const Section = (props) => {
 
                             {
                                 data2 && data2.map((item,index) => (
-                                    <div key={index} className="slider__card">
+                                    <div data-aos="fade-left"
+                                    data-aos-offset="500"
+                                    data-aos-duration="500" key={index} className="slider__card">
                                         <div className="slider__card__header">
                                             <i id={item.id}  style={item.status == true ? {color: '#be123c'} : console.log('')} onClick={(e) => test(e)} className="fa-solid fa-heart heart"></i>
                                             <a href={'https://www.youtube.com/watch?v='+item.ytid}>
@@ -251,7 +259,9 @@ const Section = (props) => {
 
                             {
                                datta3 &&datta3.map((item,index) => (
-                                    <div key={index} className="slider__card slider__third">
+                                    <div  data-aos="flip-left"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="700" key={index} className="slider__card slider__third">
                                         <div className="slider__card__header">
                                             {/* <i id={item.id}  style={item.status == true ? {color: '#be123c'} : console.log('')} onClick={(e) => test(e)} className="fa-solid fa-heart heart"></i> */}
                                             <iframe width="300" height="300" src={"https://www.youtube.com/embed/"+item.ytid} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -273,7 +283,9 @@ const Section = (props) => {
                     </div>
                 </div>
                 <div className="last__wraper__card">
-                    <div className="last__card">
+                    <div  data-aos="fade-left"
+                        data-aos-offset="200"
+                        data-aos-easing="ease" className="last__card">
                         <div className="last__img">
                             <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B2%D0%B7,_%D0%9A%D0%B8%D0%B0%D0%BD%D1%83">
                                 <img src={keanu} alt="" />
@@ -283,7 +295,9 @@ const Section = (props) => {
                             <div className="t">Keanu Reeves</div>
                         </div>
                     </div>
-                    <div className="last__card">
+                    <div  data-aos="fade-left"
+                        data-aos-offset="200"
+                        data-aos-easing="ease" className="last__card">
                         <div className="last__img">
                             <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B9%D0%BD%D0%BE%D0%BB%D1%8C%D0%B4%D1%81,_%D0%A0%D0%B0%D0%B9%D0%B0%D0%BD">
                                 <img src={ryan} alt="" />
@@ -294,7 +308,9 @@ const Section = (props) => {
                         </div>
                     </div>
                     <div className="last__card">
-                        <div className="last__img">
+                        <div  data-aos="fade-right"
+                        data-aos-offset="200"
+                        data-aos-easing="ease" className="last__img">
                             <a href="https://commons.wikimedia.org/wiki/File:Timoth%C3%A9e_Chalamet_2017_Berlinale.jpg?uselang=ru">
                                 <img src={timot} alt="" />
                             </a>
@@ -303,7 +319,9 @@ const Section = (props) => {
                             <div className="t"> Timothée Chalamet </div>
                         </div>
                     </div>
-                    <div className="last__card">
+                    <div  data-aos="fade-right"
+                        data-aos-offset="200"
+                        data-aos-easing="ease" className="last__card">
                         <div className="last__img">
                             <a href="https://commons.wikimedia.org/wiki/File:Chloe_Moretz_2018_2.jpg?uselang=ru">
                                 <img src={moretz} alt="" />

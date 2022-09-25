@@ -9,7 +9,11 @@
   width: 0px;
   border-radius: 16px;
 }
-
+::selection {
+  background: #BE123C;
+  color: #ffffff;
+  text-shadow: none;
+}
 .container{
   width: 100% !important;
   max-width: 1300px !important;

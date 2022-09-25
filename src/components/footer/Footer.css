@@ -24,12 +24,14 @@
     align-items: center;
 }
 .fa-brands{
-    font-size: 24px;
+    font-size: 24.5px;
     transition: 0.2s ease-in;
     cursor: pointer;
 }
-.footer__icons .fa-brands:hover {
-    color: #dddddd;
+.footer__icons .foot_icon:hover .fa-brands{
+    transform: translateY(-10px);
+    cursor: pointer;
+    color: #BE123C;
 }
 .footer__titles{
     width: 100%;

@@ -194,6 +194,15 @@ color: #9CA3AF;
     background-size: cover;
     object-position: center;
     background-repeat: no-repeat;
+    transition:.3s all linear !important;
+    /* filter: blur(500); */
+    filter: grayscale(1);
+}
+.last__img img:hover{
+    transition:.3s all linear !important;
+    /* filter: blur(900); */
+    filter: grayscale(0);
+    transform: scale(1.1);
 }
 .t{
     font-family: 'DM Sans';
@@ -202,7 +211,7 @@ color: #9CA3AF;
     font-size: 18px;
     line-height: 23px;
     color: #111827;
-    margin-top: 12px;
+    margin-top: 13px;
 }
 #changeColor{
     color: #BE123C;
