@@ -17029,11 +17029,18 @@ function App() {
     item.id = id;
   })
 
+  const [ load, setLoader ] = useState(false);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(true)
+    }, 5000)
+  }, [])
   return (
     <div className="App">
-      <Header data={data} setValue={setValue} ikValue={value}/>
-      <Section data={data} setValue={setValue} />
-      <Footer />
+      { load == true ? <Header data={data} setValue={setValue} ikValue={value}/> : <div className='loader d-flex justify-content-center align-item-center w-100 bg-light'><div className="spinner-grow spin text-danger" role="status"><span class="visually-hidden">Loading...</span></div></div> }
+      { load == true ? <Section data={data} setValue={setValue} /> :  null}
+      { load == true ? <Footer /> :  null}
     </div>
   );
 }

@@ -36,6 +36,7 @@ const Header = (props) => {
          }))
         // setMoviee(movie)
     }
+    const [  ] = useState();
     return (
         <div style={num === 2 ? {backgroundImage: `url(${poster2})`, zIndex: '999', opacity: '1'} : num === 3 ? {backgroundImage: `url(${poster3})`, zIndex: '999', opacity: '1'} : num === 4 ? {backgroundImage: `url(${poster4})`, zIndex: '999', opacity: '1'} : {overflow: 'hidden'}} className="Header" >
             <div className="container">
